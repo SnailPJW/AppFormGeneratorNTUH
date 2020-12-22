@@ -1,3 +1,4 @@
+using ElectronNET.API;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -52,6 +53,9 @@ namespace AppFormGeneratorNTUH
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //Open electron window.
+            Task.Run(async () => await Electron.WindowManager.CreateWindowAsync());
         }
     }
 }
